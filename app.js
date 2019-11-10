@@ -66,7 +66,7 @@ class App extends Component {
     const hours = hourArray;
     return (
       <div>
-        <h2>Search Restaurants</h2>
+        <h2>Search Open Restaurants</h2>
         <form id="openNow" onSubmit={(ev) => ev.preventDefault()}>
           <label htmlFor="nbhd">Neighborhood: </label>
           <input name="nbhd" value={ nbText } onChange={ (ev) => this.setState({nbText: ev.target.value })} />
