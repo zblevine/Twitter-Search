@@ -43,7 +43,8 @@ class App extends Component {
       nbText: '',
       cityText: '',
       time: moment().hour(),
-      timeZone: -5 //Eastern Time
+      timeZone: -5, //Eastern Time
+      restType: 'Restaurant'
     }
   }
   async searchByLocation(nb, city) {
@@ -62,11 +63,16 @@ class App extends Component {
     //console.log(moment().utcOffset(this.state.timeZone).set('hour', parseInt(this.state.time, 10)).unix());
   }
   render() {
-    const { biz, nbText, cityText, time, timeZone } = this.state;
+    const { biz, nbText, cityText, time, timeZone, restType } = this.state;
     const hours = hourArray;
     return (
       <div>
-        <h2>Search Open Restaurants</h2>
+        <h2>Search Open {restType}s</h2>
+        <h4>Search For:</h4>
+        <div>
+          <input type="radio" id="type1"name="contact" value="email" />
+          <label for="contactChoice1">Email</label>
+        </div>
         <form id="openNow" onSubmit={(ev) => ev.preventDefault()}>
           <label htmlFor="nbhd">Neighborhood: </label>
           <input name="nbhd" value={ nbText } onChange={ (ev) => this.setState({nbText: ev.target.value })} />
